@@ -1,1 +1,113 @@
-/* Add styles here */
+
+:root {
+    --background-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --primary-color: #4CAF50;
+    --container-bg: #2a2a2a;
+    --ball-color-1: #ff5252;
+    --ball-color-2: #ffbc00;
+    --ball-color-3: #448aff;
+    --ball-color-4: #9c27b0;
+    --ball-color-5: #00bcd4;
+    --ball-color-6: #ff9800;
+    --font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: radial-gradient(circle, #333 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.container {
+    background-color: var(--container-bg);
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 100px rgba(0,0,0,0.3) inset;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+}
+
+.lotto-display {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+lotto-ball {
+    /* Styles for the custom element will be defined here */
+}
+
+#generate-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4), 0 0 5px rgba(76,175,80,0.8) inset;
+}
+
+#generate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6), 0 0 10px rgba(76,175,80,1) inset;
+}
+
+.history {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+h2 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--container-bg);
+}
+
+#history-list li {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .lotto-display {
+        gap: 0.5rem;
+    }
+}
