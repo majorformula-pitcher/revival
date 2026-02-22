@@ -71,5 +71,27 @@ function updateHistory(numbers) {
 
 generateBtn.addEventListener('click', generateNumbers);
 
+// Theme Toggle Logic
+const themeBtn = document.getElementById('theme-btn');
+const htmlElement = document.documentElement;
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'light';
+htmlElement.setAttribute('data-theme', savedTheme);
+updateThemeButtonText(savedTheme);
+
+themeBtn.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeButtonText(newTheme);
+});
+
+function updateThemeButtonText(theme) {
+    themeBtn.textContent = theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+}
+
 // Initial generation
 generateNumbers();
